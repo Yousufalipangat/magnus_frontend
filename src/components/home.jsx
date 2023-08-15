@@ -10,28 +10,28 @@ import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 function Home() {
 
     const [isAuth,setIsAuth] = useState(true);
-  //   const navigate= useNavigate();
+    const navigate= useNavigate();
 
-  //  const {state} = useLocation();
-  //  useEffect(()=>{
+   const {state} = useLocation();
+   useEffect(()=>{
 
-  //   if(state){
-  //       axios.post("http://localhost:8000/",{email:state.email,pass:state.pass}).then((res)=>{
-  //       if(res.data)
-  //       {
-  //         setIsAuth(true)
-  //       }
-  //      }).catch((e)=>{
-  //       alert('Session time out');
-  //       navigate('/',{replace:true});
+    if(state){
+        axios.post("https://magnus-backend-point.onrender.com/",{email:state.email,pass:state.pass}).then((res)=>{
+        if(res.data)
+        {
+          setIsAuth(true)
+        }
+       }).catch((e)=>{
+        alert('Session time out');
+        navigate('/',{replace:true});
         
-  //      })
-  //   }else{
-  //       console.log('no state')
-  //       alert('Please sign in');
-  //       navigate('/',{replace:true});
-  //   }
-  //  },[])
+       })
+    }else{
+        console.log('no state')
+        alert('Please sign in');
+        navigate('/',{replace:true});
+    }
+   },[])
    
   const menu = [
     {

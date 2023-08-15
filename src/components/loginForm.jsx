@@ -20,7 +20,7 @@ function LoginForm() {
   function checkUser(e){
      e.preventDefault();
 
-     axios.post("http://localhost:8000/",{email:emailAddress,pass:password}).then((res)=>{
+     axios.post("https://magnus-backend-point.onrender.com/",{email:emailAddress,pass:password}).then((res)=>{
       if(res.data)
       {
         navigate('/home',{replace: true,state:{ email:emailAddress ,pass:password}})

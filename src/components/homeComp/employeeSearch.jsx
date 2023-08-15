@@ -18,7 +18,7 @@ function EmployeeSearch() {
 
     function fetchAllData() {
 
-        axios.get("http://localhost:8000/record", { params: { firstName: filter.current.firstName, mobileNumber: filter.current.mobileNumber } }).then((result) => {
+        axios.get("https://magnus-backend-point.onrender.com/record", { params: { firstName: filter.current.firstName, mobileNumber: filter.current.mobileNumber } }).then((result) => {
             setEmployeeSheet(result.data);
         })
 
@@ -73,7 +73,7 @@ function EmployeeSearch() {
 
    async function syncEditedData (){
 
-        axios.patch(`http://localhost:8000/record/${editProfile._id}`,editProfile).then(res=>{
+        axios.patch(`https://magnus-backend-point.onrender.com/record/${editProfile._id}`,editProfile).then(res=>{
             if (res.status == '200')
             {
                 alert("successfully data edited")
@@ -92,7 +92,7 @@ function EmployeeSearch() {
 
     function deleteRecords(e, id) {
 
-        axios.delete(`http://localhost:8000/record/${id}`).then((response) => {
+        axios.delete(`https://magnus-backend-point.onrender.com/record/${id}`).then((response) => {
 
         if(response.status == '200')
         {
