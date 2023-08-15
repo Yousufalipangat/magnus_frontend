@@ -1,0 +1,19 @@
+.loginPageContent  {
+    text-align: center;
+    line-height: .5; 
+}
+
+.loginPageContent h6  {
+    background-color: gold;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.loginBox {
+    
+    width: 350px;
+    box-shadow: 0px 0px 1.5px;
+    padding: 20px;
+    border-radius: 15px; 
+}
+

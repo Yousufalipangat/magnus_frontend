@@ -1,0 +1,39 @@
+aside{
+    height: 85vh;
+    width: 50vh;
+    background-color: whitesmoke;
+    overflow-x: scroll;
+   
+}
+
+.contentArea{
+ 
+    border-radius: 8px;
+    width: 100%;
+    border:1.5px solid gray;
+    height: 81vh;
+    margin: 10px;
+    align-items: start;
+    justify-content: start;
+    padding: 1.5rem;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.infoBanner{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 3px;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background-color: cornsilk;
+    border-radius: 8px;
+
+}
+
+.contentContainer{
+    display: flex;
+    
+}
