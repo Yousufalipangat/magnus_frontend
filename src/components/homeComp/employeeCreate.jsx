@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../../css/employeeCreate.css";
 import axios from "axios";
+import BASE_URL from "../../assets/supportFile";
 
 function EmployeeCreate() {
     const [profile, setProfile] = useState({});
@@ -9,7 +10,7 @@ function EmployeeCreate() {
     function addEmployee(e) {
 
         //  e.preventDefault();
-        axios.post('https://magnus-backend-point.onrender.com/record/', { ...profile }).then((res) => {
+        axios.post(`${BASE_URL}/record/`, { ...profile }).then((res) => {
             setProfile({});
             alert("record added");
 

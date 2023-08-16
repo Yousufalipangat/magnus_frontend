@@ -2,9 +2,10 @@
 import "../css/home.css";
 import MenuItem from "./homeComp/menuItem";
 import TopBar from "./homeComp/topBar";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
+import {  Outlet, useLocation, useNavigate } from "react-router-dom";
+import BASE_URL from "../assets/supportFile";
 
 
 function Home() {
@@ -12,22 +13,27 @@ function Home() {
     const [isAuth,setIsAuth] = useState(true);
     const navigate= useNavigate();
 
-   const {state} = useLocation();
+
+  const state = useRef();
+  state.current = useLocation().state;
    useEffect(()=>{
 
     if(state){
-        axios.post("https://magnus-backend-point.onrender.com/",{email:state.email,pass:state.pass}).then((res)=>{
+        axios.post(`${BASE_URL}`,{email:state.email,pass:state.pass}).then((res)=>{
+          
         if(res.data)
         {
           setIsAuth(true)
         }
        }).catch((e)=>{
+
         alert('Session time out');
+        state.current = undefined;
         navigate('/',{replace:true});
         
        })
     }else{
-        console.log('no state')
+        
         alert('Please sign in');
         navigate('/',{replace:true});
     }

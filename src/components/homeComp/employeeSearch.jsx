@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
+import BASE_URL from '../../assets/supportFile';
 
 function EmployeeSearch() {
 
@@ -18,7 +19,7 @@ function EmployeeSearch() {
 
     function fetchAllData() {
 
-        axios.get("https://magnus-backend-point.onrender.com/record", { params: { firstName: filter.current.firstName, mobileNumber: filter.current.mobileNumber } }).then((result) => {
+        axios.get(`${BASE_URL}/record`, { params: { firstName: filter.current.firstName, mobileNumber: filter.current.mobileNumber } }).then((result) => {
             setEmployeeSheet(result.data);
         })
 
@@ -73,7 +74,7 @@ function EmployeeSearch() {
 
    async function syncEditedData (){
 
-        axios.patch(`https://magnus-backend-point.onrender.com/record/${editProfile._id}`,editProfile).then(res=>{
+        axios.patch(`${BASE_URL}/record/${editProfile._id}`,editProfile).then(res=>{
             if (res.status == '200')
             {
                 alert("successfully data edited")
@@ -92,7 +93,7 @@ function EmployeeSearch() {
 
     function deleteRecords(e, id) {
 
-        axios.delete(`https://magnus-backend-point.onrender.com/record/${id}`).then((response) => {
+        axios.delete(`${BASE_URL}/record/${id}`).then((response) => {
 
         if(response.status == '200')
         {
