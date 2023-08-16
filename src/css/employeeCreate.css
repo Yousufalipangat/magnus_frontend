@@ -37,9 +37,15 @@ input[type='checkbox']{
     border: 1.5px solid gray;
     
 }
-.showTable >thead , tbody >tr > td , th {
+.showTable >thead >tr > th  {
     border: 1.5px solid grey;
     padding: .2rem;
+}
+
+.showTable >tbody > tr > td {
+    border: 1.5px solid grey;
+    padding: .2rem;
+
 }
 
 .showTable > tbody tr:nth-child(even) {

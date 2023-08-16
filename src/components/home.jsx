@@ -14,30 +14,31 @@ function Home() {
     const navigate= useNavigate();
 
 
-  const state = useRef();
-  state.current = useLocation().state;
-   useEffect(()=>{
+  // const state = useRef();
+  // state.current = useLocation().state;
+  //  useEffect(()=>{
 
-    if(state){
-        axios.post(`${BASE_URL}`,{email:state.email,pass:state.pass}).then((res)=>{
+    // if(state){
+     //   axios.post(`${BASE_URL}`,{email:state.email,pass:state.pass}).then((res)=>{
           
-        if(res.data)
-        {
-          setIsAuth(true)
-        }
-       }).catch((e)=>{
+      //   if(res.data)
+      //   {
+      //     setIsAuth(true)
+      //   }
+      //  }
+      //  ).catch((e)=>{
 
-        alert('Session time out');
-        state.current = undefined;
-        navigate('/',{replace:true});
+      //   alert('Session time out');
+        // state.current = undefined;
+        // navigate('/',{replace:true});
         
-       })
-    }else{
+      //  })
+    // }else{
         
-        alert('Please sign in');
-        navigate('/',{replace:true});
-    }
-   },[])
+    //     alert('Please sign in');
+    //     navigate('/',{replace:true});
+    // }
+  //  },[])
    
   const menu = [
     {

@@ -7,7 +7,7 @@ function EmployeeSearch() {
     const filter = useRef({ firstName: '', mobileNumber: '' });
     const [employeeSheet, setEmployeeSheet] = useState([]);
     const [sortIcon, setSortIcon] = useState({ name: 'firstName', desc: false });
-    const [loading, setLoading] = useState(false);
+   
     const [editProfile, setEditProfile] = useState({});
 
     useEffect(() => {
@@ -29,7 +29,7 @@ function EmployeeSearch() {
 
         let profile = employeeSheet;
         console.log(sortIcon);
-        if (sortIcon.name == element) {
+        if (sortIcon.name === element) {
             setSortIcon((pre) => ({ ...pre, desc: !pre.desc }))
 
             profile.sort((a, b) => {
@@ -75,7 +75,7 @@ function EmployeeSearch() {
    async function syncEditedData (){
 
         axios.patch(`${BASE_URL}/record/${editProfile._id}`,editProfile).then(res=>{
-            if (res.status == '200')
+            if (res.status === '200')
             {
                 alert("successfully data edited")
                 fetchAllData()
@@ -95,7 +95,7 @@ function EmployeeSearch() {
 
         axios.delete(`${BASE_URL}/record/${id}`).then((response) => {
 
-        if(response.status == '200')
+        if(response.status === '200')
         {
             alert("Record successfully deleted");
 
@@ -147,11 +147,7 @@ function EmployeeSearch() {
 
                     }}>Clear</button>
                 </div>
-                <div>
-                    <div class="spinner-border m-5" role="status" hidden={loading ? false : true}>
-                        <span class="sr-only"></span>
-                    </div>
-                </div>
+               
             </div>
 
              { editProfile._id &&<div className="popArea">

@@ -7,12 +7,12 @@ function EmployeeCreate() {
     const [profile, setProfile] = useState({});
     const [otherCity, setOtherCity] = useState(false);
 
-    function addEmployee(e) {
+    function addEmployee() {
 
         //  e.preventDefault();
-        axios.post(`${BASE_URL}/record/`, { ...profile }).then((res) => {
+        axios.post(`${BASE_URL}/record/`, {...profile} ).then((res) => {
             setProfile({});
-            alert("record added");
+          //  alert("record added");
 
 
         })
@@ -88,7 +88,7 @@ function EmployeeCreate() {
                     })
                 } else {
 
-                    setProfile((prev) => ({ ...prev, skills: prev.skills.filter((item) => (item != e.target.value && item)) }));
+                    setProfile((prev) => ({ ...prev, skills: prev.skills.filter((item) => (item !== e.target.value && item)) }));
                 }
                 break;
             default:
@@ -107,6 +107,7 @@ function EmployeeCreate() {
             </div>
             <form onSubmit={e => addEmployee(e)}>
                 <table>
+                <tbody>
                     <tr className="section">
                         <td>
                             <label htmlFor="firstName"> First Name</label>
@@ -114,7 +115,7 @@ function EmployeeCreate() {
                             <input
                                 placeholder="First Name"
                                 name="firstName"
-                                class="box1"
+                                className="box1"
                                 type="text"
                                 onChange={(e) => { updateProfile(e) }}
                                 required
@@ -126,7 +127,7 @@ function EmployeeCreate() {
                             <input
                                 placeholder=" Last Name"
                                 name="lastName"
-                                class="box1"
+                                className="box1"
                                 type="text"
                                 onChange={(e) => { updateProfile(e) }}
                                 required
@@ -136,7 +137,7 @@ function EmployeeCreate() {
                         <td>
                             <label htmlFor="email">Email</label>
                             <br />
-                            <input placeholder="email" name="email" class="box1" type="email"
+                            <input placeholder="email" name="email" className="box1" type="email"
                                 onChange={(e) => { updateProfile(e) }}
                                 required
                             />
@@ -149,7 +150,7 @@ function EmployeeCreate() {
                             <input
                                 placeholder="mobile number"
                                 name="mobileNumber"
-                                class="box1"
+                                className="box1"
                                 type="tel"
                                 maxLength={10}
                                 onChange={(e) => { updateProfile(e) }}
@@ -160,7 +161,7 @@ function EmployeeCreate() {
                         <td>
                             <label htmlFor="dob">Date of Birth</label>
                             <br />
-                            <input name="dob" class="box1" type="date"
+                            <input name="dob" className="box1" type="date"
                                 onChange={(e) => { updateProfile(e) }}
                                 required />
                         </td>
@@ -196,7 +197,7 @@ function EmployeeCreate() {
                             <select name="country" className="box1" placeholder="select country" id="country"
                                 onChange={(e) => { updateProfile(e) }} required>
                                 <option value="NA" >select country</option>
-                                {country.map((item) => <option value={item.country}>{item.country}</option>)}
+                                {country.map((item,index) => <option key={index} value={item.country}>{item.country}</option>)}
                             </select>
 
                         </td>
@@ -208,8 +209,8 @@ function EmployeeCreate() {
                                 <option value="NA" >select city</option>
                                 {
                                     profile.country && (country.filter((item) => item.country === profile.country && item.city)[0].city)
-                                        .map((item) => {
-                                            return <option value={item}>{item}</option>
+                                        .map((item,index) => {
+                                            return <option key={index}value={item}>{item}</option>
                                         }
                                         )
                                 }
@@ -229,7 +230,7 @@ function EmployeeCreate() {
 
                                 <label htmlFor="otherCity">Other City</label>
                                 <br />
-                                <input name="otherCity" class="box1" type="text" required
+                                <input name="otherCity" className="box1" type="text" required
                                     onChange={(e) => { updateProfile(e) }} />
                             </td>
                         </tr>
@@ -263,10 +264,11 @@ function EmployeeCreate() {
                     </tr>
                     <tr>
                         <td>
-                            <button type="submit" class="btn btn-success ">Save</button>
-                            <button type="button" class="btn btn-danger mx-3">Cancel</button>
+                            <button type="submit" className="btn btn-success ">Save</button>
+                            <button type="button" className="btn btn-danger mx-3">Cancel</button>
                         </td>
                     </tr>
+                    </tbody>
                 </table>
             </form>
         </div>

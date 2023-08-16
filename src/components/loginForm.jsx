@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../css/loginForm.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import BASE_URL from "../assets/supportFile";
 
 
 function LoginForm() {
@@ -20,7 +21,7 @@ function LoginForm() {
   function checkUser(e){
      e.preventDefault();
 
-     axios.post("http://localhost:8000/",{email:emailAddress,pass:password}).then((res)=>{
+     axios.post(`${BASE_URL}`,{email:emailAddress,pass:password}).then((res)=>{
       if(res.data)
       {
         navigate('/home',{replace: true,state:{ email:emailAddress ,pass:password}})
