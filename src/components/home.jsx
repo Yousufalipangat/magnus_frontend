@@ -2,16 +2,16 @@
 import "../css/home.css";
 import MenuItem from "./homeComp/menuItem";
 import TopBar from "./homeComp/topBar";
-import { useEffect, useRef, useState } from "react";
-import axios from "axios";
-import {  Outlet, useLocation, useNavigate } from "react-router-dom";
-import BASE_URL from "../assets/supportFile";
+
+
+import {  Outlet} from "react-router-dom";
+
 
 
 function Home() {
 
-    const [isAuth,setIsAuth] = useState(true);
-    const navigate= useNavigate();
+    // const [isAuth,setIsAuth] = useState(true);
+    // const navigate= useNavigate();
 
 
   // const state = useRef();
@@ -80,7 +80,7 @@ function Home() {
   ];
 
   return (
-    isAuth &&
+ //   isAuth &&
     <div className="homeContainer">
       <TopBar />
       <div className="contentContainer">
