@@ -68,18 +68,22 @@ function EmployeeSearch() {
     function editDetails(e,element) {
 
         setEditProfile((pre)=>({...pre,[element]:e.target.value}));
-        console.log(editProfile)
+        
 
     }
 
    async function syncEditedData (){
 
         axios.patch(`${BASE_URL}/record/${editProfile._id}`,editProfile).then(res=>{
-            if (res.status === '200')
+
+            console.log(res)
+            if (res.status === 200)
             {
                 alert("successfully data edited")
                 fetchAllData()
-            }
+            }else(
+                alert("Sorry, edit didn't work")
+            )
         })
         setEditProfile({});
     
@@ -95,7 +99,8 @@ function EmployeeSearch() {
 
         axios.delete(`${BASE_URL}/record/${id}`).then((response) => {
 
-        if(response.status === '200')
+        console.log(response);
+        if(response.status === 200)
         {
             alert("Record successfully deleted");
 

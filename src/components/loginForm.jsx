@@ -18,16 +18,22 @@ function LoginForm() {
     setPassword(e.target.value);
   }
 
+
+  axios.defaults.withCredentials = true;
   function checkUser(e){
      e.preventDefault();
 
-     axios.post(`${BASE_URL}`,{email:emailAddress,pass:password}).then((res)=>{
-      if(res.data)
+     axios.post(`${BASE_URL}`,{email:emailAddress,pass:password}).then((result)=>{
+
+      if(result.data.login)
       {
-        navigate('/home',{replace: true,state:{ email:emailAddress ,pass:password}})
+        navigate('/home')
+      }
+      else{
+        alert('wrong credentials')
       }
      }).catch((e)=>{
-      alert('Give Valid Inputs');
+        alert('sorry,something went wrong');
      })
 
   }
@@ -35,7 +41,7 @@ function LoginForm() {
   return (
     <form className="loginBox" onSubmit={(e)=>checkUser(e)}>
       <div className="mb-3">
-        <label for="exampleFormControlInput1" className="form-label">
+        <label htmlFor="exampleFormControlInput1" className="form-label">
           Email address
         </label>
         <input
@@ -43,6 +49,7 @@ function LoginForm() {
           className="form-control"
           id="exampleFormControlInput1"
           placeholder="name@example.com"
+          
           onChange={(e) => {
             updateMail(e);
           }}
@@ -50,7 +57,7 @@ function LoginForm() {
         />
       </div>
       <div className="mb-3">
-        <label for="inputPassword5" className="form-label">
+        <label htmlFor="inputPassword5" className="form-label">
           Password
         </label>
         <input
@@ -66,18 +73,18 @@ function LoginForm() {
         
       </div>
 
-      <div class="form-check">
+      <div className="form-check">
         <input
-          class="form-check-input"
+          className="form-check-input"
           type="checkbox"
           value=""
           id="flexCheckDefault"
         />
-        <label class="form-check-label" for="flexCheckDefault">
+        <label className="form-check-label" htmlFor="flexCheckDefault">
           Remember me
         </label>
       </div>
-      <button type="submit" class="btn btn-primary mt-3">
+      <button type="submit" className="btn btn-primary mt-3">
         Sign In
       </button>
     </form>
