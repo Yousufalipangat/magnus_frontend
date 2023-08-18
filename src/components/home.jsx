@@ -10,15 +10,18 @@ import axios from "axios";
 import BASE_URL from "../assets/supportFile";
 
 
-axios.defaults.withCredentials = true;
+
 function Home() {
 
   const navigate = useNavigate();
   const [sessionValidate,setSessionValidate] = useState(false); 
   useEffect(() => {
 
+    
 
-    axios.get(`${BASE_URL}`).then(result => {
+    axios.get(`${BASE_URL}`,{withCredentials:true}).then(result => {
+
+      console.log(result)
 
       if (result.data.valid) {
         setSessionValidate(true)

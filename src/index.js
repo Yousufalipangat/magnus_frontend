@@ -11,7 +11,9 @@ import Home from "./components/home";
 import EmployeeCreate from "./components/homeComp/employeeCreate";
 import EmployeeSearch from "./components/homeComp/employeeSearch";
 import HomeContent from "./components/homeComp/homeContent";
+import axios from "axios";
 
+axios.defaults.withCredentials = true;
 const container = document.getElementById("root");
 
 const router = createBrowserRouter(

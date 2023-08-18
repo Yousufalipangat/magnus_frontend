@@ -18,15 +18,21 @@ function LoginForm() {
     setPassword(e.target.value);
   }
 
+  const config = {
+    headers:{"Content-Type": "application/json"},
+    withCredentials:true
+}
 
-  axios.defaults.withCredentials = true;
+
   function checkUser(e){
      e.preventDefault();
 
-     axios.post(`${BASE_URL}`,{email:emailAddress,pass:password}).then((result)=>{
+     axios.post(`${BASE_URL}`,{email:emailAddress,pass:password},config).then((result)=>{
+       console.log(result)
 
       if(result.data.login)
       {
+
         navigate('/home')
       }
       else{
