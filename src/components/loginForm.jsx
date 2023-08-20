@@ -18,28 +18,23 @@ function LoginForm() {
     setPassword(e.target.value);
   }
 
-  const config = {
-    headers:{"Content-Type": "application/json"},
-    withCredentials:true
-}
 
 
   function checkUser(e){
      e.preventDefault();
 
-     axios.post(`${BASE_URL}`,{email:emailAddress,pass:password},config).then((result)=>{
+     axios.post(`${BASE_URL}`,{email:emailAddress,pass:password},{withCredentials:true}).then((result)=>{
        console.log(result)
 
       if(result.data.login)
       {
-
         navigate('/home')
       }
       else{
-        alert('wrong credentials')
+        alert('Wrong credentials')
       }
      }).catch((e)=>{
-        alert('sorry,something went wrong');
+        alert('Sorry,something went wrong');
      })
 
   }

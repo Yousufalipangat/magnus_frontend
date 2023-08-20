@@ -19,7 +19,7 @@ function Home() {
 
     
 
-    axios.get(`${BASE_URL}`,{withCredentials:true}).then(result => {
+    axios.get(`${BASE_URL}/auth`,{withCredentials:true}).then(result => {
 
       console.log(result)
 
@@ -27,7 +27,7 @@ function Home() {
         setSessionValidate(true)
       } else {
         navigate('/');
-        alert('Time limit exceeded, sign again')
+        alert('info','Time limit exceeded, sign again/enable cookie to work properly')
       }
 
     })
