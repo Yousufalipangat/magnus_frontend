@@ -15,11 +15,8 @@ function Home() {
 
   const navigate = useNavigate();
   const [sessionValidate,setSessionValidate] = useState(false); 
-  useEffect(() => {
-
-    
-
-    axios.get(`${BASE_URL}/auth`,{withCredentials:true}).then(result => {
+  useEffect( () => {
+   axios.get(`${BASE_URL}/auth`,{withCredentials:true}).then(result => {
 
       console.log(result)
 
@@ -27,7 +24,7 @@ function Home() {
         setSessionValidate(true)
       } else {
         navigate('/');
-        alert('info','Time limit exceeded, sign again/enable cookie to work properly')
+        alert('Time limit exceeded, sign again/enable cookie to work properly')
       }
 
     })

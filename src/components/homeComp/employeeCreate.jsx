@@ -25,7 +25,7 @@ function EmployeeCreate() {
 
     function addEmployee(e) {
 
-        axios.post(`${BASE_URL}/record/`, { ...profile }).then((res) => {
+        axios.post(`${BASE_URL}/record/`, { ...profile },{withCredentials:true}).then((res) => {
 
             if (res.status === 200) {
                 setProfile({

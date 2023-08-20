@@ -20,7 +20,7 @@ function LoginForm() {
 
 
 
-  function checkUser(e){
+   function checkUser (e){
      e.preventDefault();
 
      axios.post(`${BASE_URL}`,{email:emailAddress,pass:password},{withCredentials:true}).then((result)=>{

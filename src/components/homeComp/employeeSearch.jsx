@@ -19,7 +19,7 @@ function EmployeeSearch() {
 
     function fetchAllData() {
 
-        axios.get(`${BASE_URL}/record`, { params: { firstName: filter.current.firstName, mobileNumber: filter.current.mobileNumber } }).then((result) => {
+        axios.get(`${BASE_URL}/record`, { params: { firstName: filter.current.firstName, mobileNumber: filter.current.mobileNumber },withCredentials:true }).then((result) => {
             setEmployeeSheet(result.data);
         })
 
@@ -74,7 +74,7 @@ function EmployeeSearch() {
 
    async function syncEditedData (){
 
-        axios.patch(`${BASE_URL}/record/${editProfile._id}`,editProfile).then(res=>{
+        axios.patch(`${BASE_URL}/record/${editProfile._id}`,editProfile,{withCredentials:true}).then(res=>{
 
             console.log(res)
             if (res.status === 200)
@@ -97,7 +97,7 @@ function EmployeeSearch() {
 
     function deleteRecords(e, id) {
 
-        axios.delete(`${BASE_URL}/record/${id}`).then((response) => {
+        axios.delete(`${BASE_URL}/record/${id}`,{withCredentials:true}).then((response) => {
 
         console.log(response);
         if(response.status === 200)
