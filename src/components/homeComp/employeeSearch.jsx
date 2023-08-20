@@ -23,12 +23,10 @@ function EmployeeSearch() {
             
             console.log('get /record',result)
             
-            if(result.status===200)
-            {
-                
-
-                setEmployeeSheet(result.data);
-            }
+          //  if(result.data)
+          //  {
+              //  setEmployeeSheet(result.data);
+          //  }
         })
 
     }
