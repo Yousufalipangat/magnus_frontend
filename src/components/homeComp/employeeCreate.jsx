@@ -160,6 +160,7 @@ function EmployeeCreate() {
                                 <input
                                     placeholder="First Name"
                                     name="firstName"
+                                    id="firstName"
                                     value={profile.firstName}
                                     className="box1"
                                     type="text"
@@ -173,6 +174,7 @@ function EmployeeCreate() {
                                 <input
                                     placeholder=" Last Name"
                                     value={profile.lastName}
+                                    id="lastName"
                                     name="lastName"
                                     className="box1"
                                     type="text"
@@ -184,7 +186,7 @@ function EmployeeCreate() {
                             <td>
                                 <label htmlFor="email">Email</label>
                                 <br />
-                                <input placeholder="email" name="email" className="box1" type="email"
+                                <input placeholder="email" id="email" name="email" className="box1" type="email"
                                 value={profile.email}
                                     onChange={(e) => { updateProfile(e) }}
                                     required
@@ -193,9 +195,10 @@ function EmployeeCreate() {
                         </tr>
                         <tr className="section">
                             <td >
-                                <label htmlFor="mobileNumber">Mobile Number</label>
+                                <label  htmlFor="mobileNumber">Mobile Number</label>
                                 <br />
                                 <input
+                                id ="mobileNumber"
                                     placeholder="mobile number"
                                     value={profile.mobileNumber}
                                     name="mobileNumber"
@@ -210,22 +213,23 @@ function EmployeeCreate() {
                             <td>
                                 <label htmlFor="dob">Date of Birth</label>
                                 <br />
-                                <input name="dob" className="box1" type="date"
+                                <input id="dob" name="dob" className="box1" type="date"
                                 value={profile.dob}
                                     onChange={(e) => { updateProfile(e) }}
                                     required />
                             </td>
                             <td>
-                                <label htmlFor="gender">Gender</label>
+                                <label htmlFor="gender">Gender
                                 <br />
                                 <label htmlFor="gender">Male</label>
-                                <input name="gender" value="male" type="radio" checked={profile.gender==='male' }
+                                <input id="male" name="gender" value="male" type="radio" checked={profile.gender==='male' }
                                     required onChange={(e) => { updateProfile(e) }}
                                 />
                                 <label htmlFor="gender">Female</label>
-                                <input name="gender" value="female" type="radio" checked={profile.gender==='female'}
+                                <input id="female" name="gender" value="female" type="radio" checked={profile.gender==='female'}
                                     required onChange={(e) => { updateProfile(e) }}
                                 />
+                                </label>
                             </td>
                         </tr>
                         <tr>
@@ -233,7 +237,7 @@ function EmployeeCreate() {
                             <td colSpan={3}>
                                 <label htmlFor="address">Address</label>
                                 <br />
-                                <textarea name="address"
+                                <textarea name="address" id="address"
                                 value={profile.address}
                                     required
                                     onChange={(e) => { updateProfile(e) }}
@@ -245,7 +249,7 @@ function EmployeeCreate() {
                         <tr>
                             <td>
                                 <label htmlFor="country" >Country</label><br />
-                                <select name="country" className="box1" placeholder="select country" id="country"
+                                <select id="country" name="country" className="box1" placeholder="select country" 
                                     onChange={(e) => { updateProfile(e) }} required>
                                     <option value="NA" >select country</option>
                                     {country.map((item, index) => <option key={index} value={item.country}>{item.country}</option>)}
@@ -254,7 +258,7 @@ function EmployeeCreate() {
                             </td>
                             <td>
                                 <label htmlFor="city" >City</label><br />
-                                <select name="city" className="box1" placeholder="select city" id="city" required
+                                <select id="city" name="city" className="box1" placeholder="select city" required
                                     disabled={otherCity}
                                     onChange={(e) => { updateProfile(e) }}>
                                     <option value="NA" >select city</option>
@@ -270,7 +274,7 @@ function EmployeeCreate() {
                             </td>
                             <td>
                                 <label htmlFor="otherCity">Other City</label>
-                                <input name="otherCity" type="checkbox"
+                                <input id="otherCity" name="otherCity" type="checkbox"
                                     onChange={(e) => { addOtherCity(e) }}
                                 />
                             </td>
@@ -279,10 +283,10 @@ function EmployeeCreate() {
                             <tr>
                                 <td>
 
-                                    <label htmlFor="otherCity">Other City</label>
+                                    <label id="othercity_1" htmlFor="otherCity">Other City
                                     <br />
-                                    <input name="otherCity" className="box1" type="text" required
-                                        onChange={(e) => { updateProfile(e) }} />
+                                    <input id="othercity_1" name="otherCity" className="box1" type="text" required
+                                        onChange={(e) => { updateProfile(e) }} /></label>
                                 </td>
                             </tr>
                         }
@@ -293,22 +297,22 @@ function EmployeeCreate() {
                             <td colSpan={2} >
                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                     <div>
-                                        <input name="skills" type="checkbox" value="AWS" onChange={(e) => { updateProfile(e) }} />
-                                        <label htmlFor="skills" >AWS</label><br />
-                                        <input name="skills" type="checkbox" value="DevOps" onChange={(e) => { updateProfile(e) }} />
-                                        <label htmlFor="skills" >DevOps</label>
+                                        <input id="aws" name="skills" type="checkbox" value="AWS" onChange={(e) => { updateProfile(e) }} />
+                                        <label htmlFor="aws" >AWS</label><br />
+                                        <input id="devops" name="skills" type="checkbox" value="DevOps" onChange={(e) => { updateProfile(e) }} />
+                                        <label htmlFor="devops" >DevOps</label>
                                     </div>
                                     <div>
-                                        <input name="skills" type="checkbox" value="Full Stack Developer" onChange={(e) => { updateProfile(e) }} />
-                                        <label htmlFor="skills" >Full Stack Developer</label><br />
-                                        <input name="skills" type="checkbox" value="Middleware" onChange={(e) => { updateProfile(e) }} />
-                                        <label htmlFor="skills" >Middleware</label>
+                                        <input id="fullstack" name="skills" type="checkbox" value="Full Stack Developer" onChange={(e) => { updateProfile(e) }} />
+                                        <label htmlFor="fullstack" >Full Stack Developer</label><br />
+                                        <input  id="middleware" name="skills" type="checkbox" value="Middleware" onChange={(e) => { updateProfile(e) }} />
+                                        <label htmlFor="middleware" >Middleware</label>
                                     </div>
                                     <div>
-                                        <input name="skills" type="checkbox" value="QA-Automation" onChange={(e) => { updateProfile(e) }} />
-                                        <label htmlFor="skills" >QA-Automation</label><br />
-                                        <input name="skills" type="checkbox" value="WebServices" onChange={(e) => { updateProfile(e) }} />
-                                        <label htmlFor="skills" >WebServices</label>
+                                        <input id="automation" name="skills" type="checkbox" value="QA-Automation" onChange={(e) => { updateProfile(e) }} />
+                                        <label htmlFor="automation" >QA-Automation</label><br />
+                                        <input id="webservice" name="skills" type="checkbox" value="WebServices" onChange={(e) => { updateProfile(e) }} />
+                                        <label htmlFor="webservice" >WebServices</label>
                                     </div>
                                 </div>
                             </td>

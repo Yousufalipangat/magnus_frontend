@@ -18,7 +18,7 @@ function Home() {
   useEffect( () => {
    axios.get(`${BASE_URL}/auth`,{withCredentials:true}).then(result => {
 
-      console.log(result)
+    console.log('get auth',result)
 
       if (result.data.valid) {
         setSessionValidate(true)

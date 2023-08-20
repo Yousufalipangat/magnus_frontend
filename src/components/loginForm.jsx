@@ -24,7 +24,7 @@ function LoginForm() {
      e.preventDefault();
 
      axios.post(`${BASE_URL}`,{email:emailAddress,pass:password},{withCredentials:true}).then((result)=>{
-       console.log(result)
+       console.log('post check user',result)
 
       if(result.data.login)
       {

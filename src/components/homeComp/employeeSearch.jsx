@@ -19,8 +19,16 @@ function EmployeeSearch() {
 
     function fetchAllData() {
 
-        axios.get(`${BASE_URL}/record`, { params: { firstName: filter.current.firstName, mobileNumber: filter.current.mobileNumber },withCredentials:true }).then((result) => {
-            setEmployeeSheet(result.data);
+        axios.get(`${BASE_URL}/record`, { params: { firstName: filter.current.firstName, mobileNumber: filter.current.mobileNumber }, withCredentials:true }).then((result) => {
+            
+            console.log('get /record',result)
+            
+            if(result.status===200)
+            {
+                
+
+                setEmployeeSheet(result.data);
+            }
         })
 
     }
@@ -119,9 +127,10 @@ function EmployeeSearch() {
             </div>
             <div style={{ display: 'flex', gap: '2rem', alignItems: 'end' }}>
                 <div >
-                    <label htmlFor="name">Name</label>
+                    <label  htmlFor="name">Name</label>
                     <br />
                     <input
+                    id="name"
                         placeholder="Employee Name"
                         name="name"
                         className="box1"
@@ -134,6 +143,7 @@ function EmployeeSearch() {
                     <label htmlFor="mobile">mobile Number</label>
                     <br />
                     <input
+                    id="mobile"
                         placeholder="Mobile Number"
                         name="mobile"
                         className="box1"
